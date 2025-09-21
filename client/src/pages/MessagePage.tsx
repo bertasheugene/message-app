@@ -25,7 +25,11 @@ const MessagePage: React.FC = () => {
 
   const onSubmit = async (data: FormData) => {
     try {
-      await axios.post("http://localhost:5432/api/messages", data);
+      const response = await axios.post(
+        "http://localhost:3001/api/messages",
+        data
+      );
+      //console.log(response);
       reset();
     } catch (error) {
       setError("root", {
